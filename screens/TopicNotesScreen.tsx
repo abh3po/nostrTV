@@ -9,6 +9,7 @@ import {
 import { Event, SimplePool } from 'nostr-tools';
 import useRelays from '../hooks/useRelays';
 import { pool } from '../singletons';
+import NoteRenderer from './NoteRendererScreen';
 
 import { RootStackParamList } from '../App'; // adjust path if needed
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -34,7 +35,7 @@ const TopicNotesScreen = ({ route, navigation }: Props) => {
       {
         kinds: [1],
         '#t': [tag],
-        limit: 100,
+        limit: 20,
       },
       {
         onevent: event => {
@@ -73,7 +74,7 @@ const TopicNotesScreen = ({ route, navigation }: Props) => {
         renderItem={({ item }) => (
           <View style={styles.noteCard}>
             <Text style={styles.pubkey}>{item.pubkey.slice(0, 12)}...</Text>
-            <Text style={styles.content}>{item.content}</Text>
+            <NoteRenderer content={item.content} />
           </View>
         )}
       />

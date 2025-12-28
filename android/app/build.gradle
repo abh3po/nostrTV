@@ -3,7 +3,7 @@ apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
 project.ext.react = [
-    enableHermes: false,  // <- enable Hermes
+    enableHermes: true,  // <- enable Hermes
     hermesCommand: "$rootDir/node_modules/hermes-engine/%OS-BIN%/hermesc"
 ]
 

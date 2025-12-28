@@ -18,4 +18,12 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url("$rootDir/node_modules/hermes-engine/android") } // <- Hermes prefab
+    }
+}
+
 apply plugin: "com.facebook.react.rootproject"
